@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.js";
+import { Task } from "./Task.js";
 
 export const Project = sequelize.define(
   "Proyect",
@@ -23,3 +24,15 @@ export const Project = sequelize.define(
     timestamps: true,
   }
 );
+
+/* Creando la relación */
+/* De uno a muchos */
+Project.hasMany(Task, {
+  foreignkey: "projectId",
+  sourceKey: "id",
+});
+
+Task.belongsTo(Project,{
+  foreignkey: "projectId",
+  targetId: "id",
+})
