@@ -4,7 +4,7 @@ import { sequelize } from "./database/database.js";
 
 async function main() {
   try {
-    await sequelize.authenticate();
+/*     await sequelize.authenticate(); */
     console.log("Conexión establecida");
     app.listen(3000, () => {
       console.log("Server is listening on port", 3000);
