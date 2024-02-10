@@ -9,6 +9,23 @@ export const getProjects = async (req, res) => {
   }
 };
 
+export const getProjectId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const projectId = await Project.findOne({
+      where: {
+        id,
+      },
+    });
+    /* Si no pongo el return en este caso se cae el servidor al no encontrar resultado */
+    if (!projectId)
+      return res.status(404).json({ message: "Project not found." });
+    res.json(projectId);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export const createProject = async (req, res) => {
   const { name, priority, description } = req.body;
 
