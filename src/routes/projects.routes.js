@@ -2,6 +2,8 @@ import { Router } from "express";
 import {
   createProject,
   getProjects,
+  deleteProject,
+  updateProject,
 } from "../controllers/projects.Controller.js";
 const router = Router();
 
@@ -12,10 +14,10 @@ router.get("/projects", getProjects);
 router.post("/projects", createProject);
 
 /* Modificar un proyecto */
-router.put("/projects/:id");
+router.put("/projects/:id", updateProject);
 
 /* Eliminar un proyecto */
-router.delete("/projects/:id");
+router.delete("/projects/:id", deleteProject);
 
 /* Pedir un solo proyecto */
 router.get("/projects/:id");
