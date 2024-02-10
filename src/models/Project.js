@@ -32,7 +32,7 @@ Project.hasMany(Task, {
   sourceKey: "id",
 });
 
-Task.belongsTo(Project,{
+Task.belongsTo(Project, {
   foreignkey: "projectId",
   targetId: "id",
-})
+});
