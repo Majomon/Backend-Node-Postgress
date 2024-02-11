@@ -66,7 +66,7 @@ export const updateProject = async (req, res) => {
     project.description = description;
     // Guardar los cambios
     await project.save();
-    res.json({ project });
+    res.json(project);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
